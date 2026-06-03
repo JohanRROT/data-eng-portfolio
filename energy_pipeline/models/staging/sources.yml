@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: energy_portfolio
+    database: energy_portfolio
+    schema: public
+    tables:
+      - name: renewables_leaders
+      - name: crisis_2022_prices
+      - name: dependency_vs_price
