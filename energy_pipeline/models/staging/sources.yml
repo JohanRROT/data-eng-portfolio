@@ -2,9 +2,40 @@ version: 2
 
 sources:
   - name: energy_portfolio
-    database: energy_portfolio
-    schema: public
+    description: "Base de datos PostgreSQL con datos de energía europea procesados desde Eurostat (2005–2024)."
     tables:
       - name: renewables_leaders
+        description: "Participación de energías renovables sobre el total de energía por país y año."
+        columns:
+          - name: geo
+            description: "Código de país (ISO 2 letras)"
+          - name: year
+            description: "Año de la observación"
+          - name: renewables_pct
+            description: "Porcentaje de renovables sobre el total de energía"
+
       - name: crisis_2022_prices
+        description: "Precios de electricidad para hogares por país y semestre, incluyendo el período de crisis energética 2021–2023."
+        columns:
+          - name: geo
+            description: "Código de país (ISO 2 letras)"
+          - name: year
+            description: "Año de la observación"
+          - name: semester
+            description: "Semestre del año (S1 o S2)"
+          - name: period
+            description: "Período completo en formato YYYY-SN"
+          - name: price_eur_kwh
+            description: "Precio de electricidad en EUR por kWh"
+
       - name: dependency_vs_price
+        description: "Dependencia energética del exterior y precio promedio de electricidad por país y año."
+        columns:
+          - name: geo
+            description: "Código de país (ISO 2 letras)"
+          - name: year
+            description: "Año de la observación"
+          - name: dependency_pct
+            description: "Porcentaje de dependencia energética del exterior"
+          - name: avg_price_eur_kwh
+            description: "Precio promedio de electricidad en EUR por kWh"
